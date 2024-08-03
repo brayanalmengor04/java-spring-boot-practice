@@ -18,7 +18,8 @@ Para comenzar con un proyecto de Spring Boot, sigue los siguientes pasos:
 3. **Configurar las dependencias**:
    - **Spring Data JPA**: Permite la conexión a la base de datos y otras operaciones relacionadas.
    - **MySQL Driver**: El controlador para conectarse a la base de datos MySQL.
-   - **Lombok**: Ayuda a reducir el código en las entidades, eliminando la necesidad de escribir manualmente los getters y setters.
+   - **Lombok**: Ayuda a reducir el código en las entidades, eliminando la necesidad de escribir manualmente los getters y setters. (En inteliJ se necesita descargar el plugin de Lombok para que pueda soportar lombok).
+   
 
 ### Ejemplo de configuración en Spring Boot Initializr
 
