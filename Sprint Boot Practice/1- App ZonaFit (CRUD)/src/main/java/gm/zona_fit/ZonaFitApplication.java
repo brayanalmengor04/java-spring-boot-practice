@@ -10,10 +10,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class ZonaFitApplication implements CommandLineRunner {
-
+	// Inyectamos la Interfaz
 	@Autowired
 	private IClienteServicio clienteServicio;
 
+	// Esto es para mostrar en consola 
 	private static final Logger logger =
 			LoggerFactory.getLogger(ZonaFitApplication.class);
 
@@ -26,6 +27,8 @@ public class ZonaFitApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		logger.info("*** Aplicacion Zona Fit (GYM) ***");
+		logger.info("*** Aplicacion Zona Fit (GYM) ***"); 
+
+		
 	}
 }
