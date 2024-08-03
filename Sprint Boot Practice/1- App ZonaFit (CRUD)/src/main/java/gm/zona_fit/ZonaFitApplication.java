@@ -15,10 +15,11 @@ import java.util.Scanner;
 
 @SpringBootApplication
 public class ZonaFitApplication implements CommandLineRunner {
-
+	// Inyectamos la Interfaz
 	@Autowired
 	private IClienteServicio clienteServicio;
 
+	// Esto es para mostrar en consola 
 	private static final Logger logger =
 			LoggerFactory.getLogger(ZonaFitApplication.class);
 
@@ -33,7 +34,13 @@ public class ZonaFitApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
+<<<<<<< HEAD
 		zonaFitApp();
+=======
+		logger.info("*** Aplicacion Zona Fit (GYM) ***"); 
+
+		
+>>>>>>> 73a8f568176d7d35191d6ce137c053bc0194db26
 	}
 
 	private void zonaFitApp(){
