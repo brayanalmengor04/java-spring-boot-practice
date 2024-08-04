@@ -31,17 +31,21 @@ public class ZonaFitApplication implements CommandLineRunner {
 		SpringApplication.run(ZonaFitApplication.class, args);
 		logger.info("Aplicacion finalizada!");
 	}
-
+	// Este es el meotodo de sprint que inicia la aplicacion 
 	@Override
 	public void run(String... args) throws Exception {
-		zonaFitApp();
+		zonaFitApp(); //Esto e un initial metodo
 	}
 
 	private void zonaFitApp(){
 		var salir = false;
 		var consola = new Scanner(System.in);
+
 		while(!salir){
+			// ESTO MOSTRARA EL MENU Y OBTENDRA EL VALOR (OPCION MENU)
 			var opcion = mostraMenu(consola);
+
+			// ESTO DIGIRATARA LA OPCION SI SALIR ES TRUE TERMINARA EL CICLO
 			salir = ejecutarOpciones(consola, opcion);
 			logger.info(nl);
 		}
@@ -65,13 +69,17 @@ public class ZonaFitApplication implements CommandLineRunner {
 		switch (opcion){
 			case 1 -> {
 				logger.info(nl + "--- Listado de Clientes ---" + nl);
+
+				// Asignacion de todos los cliente de la base de datos (La inyeccion dependencia)
 				List<Cliente> clientes = clienteServicio.listarClientes();
 				clientes.forEach(cliente -> logger.info(cliente.toString() + nl));
 			}
 			case 2 -> {
 				logger.info(nl + "--- Buscar Cliente por Id ---" + nl);
-				logger.info("Id Cliente a buscar: ");
-				var idCliente = Integer.parseInt(consola.nextLine());
+				logger.info("Id Cliente a buscar: "); 
+				var idCliente = Integer.parseInt(consola.nextLine()); 
+
+				// INYECCION DE LA CAPA SERVICIO 
 				Cliente cliente = clienteServicio.buscarClientePorId(idCliente);
 				if(cliente != null)
 					logger.info("Cliente encontrado: " + cliente + nl);
@@ -89,7 +97,8 @@ public class ZonaFitApplication implements CommandLineRunner {
 				var cliente = new Cliente();
 				cliente.setNombre(nombre);
 				cliente.setApellido(apellido);
-				cliente.setMembresia(membresia);
+				cliente.setMembresia(membresia); 
+
 				clienteServicio.guardarCliente(cliente);
 				logger.info("Cliente agregado: " + cliente + nl);
 			}
@@ -97,6 +106,7 @@ public class ZonaFitApplication implements CommandLineRunner {
 				logger.info("--- Modificar Cliente ---" + nl);
 				logger.info("Id Cliente: ");
 				var idCliente = Integer.parseInt(consola.nextLine());
+				
 				Cliente cliente = clienteServicio.buscarClientePorId(idCliente);
 				if(cliente != null){
 					logger.info("Nombre: " );
@@ -108,6 +118,8 @@ public class ZonaFitApplication implements CommandLineRunner {
 					cliente.setNombre(nombre);
 					cliente.setApellido(apellido);
 					cliente.setMembresia(membresia);
+
+
 					clienteServicio.guardarCliente(cliente);
 					logger.info("Cliente modificado: " + cliente + nl);
 				}
